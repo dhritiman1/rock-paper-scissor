@@ -1,0 +1,204 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+* {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+:root {
+  --button-color: #222222;
+  --button-color-hover: #303030;
+
+  --text-color-100: #ffffff;
+
+  --font-size-100: 1.5rem;
+  --font-size-300: 2rem;
+  --font-size-500: 2.5rem;
+  --font-size-900: 3rem;
+}
+
+body {
+  background-color: #232323;
+  /*font-family: 'Homemade Apple', cursive;*/
+  font-family: "Tillana", cursive;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-text {
+  margin: 2vw 4vh;
+  margin-top: 21vh;
+}
+
+h1 {
+  color: var(--text-color-100);
+  font-size: var(--font-size-900);
+  font-weight: 500;
+  text-align: center;
+}
+
+p {
+  color: var(--text-color-100);
+  font-size: var(--font-size-100);
+  font-weight: 500;
+  text-align: center;
+}
+
+.game-holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
+
+.when-clicked {
+  background-color: #2b2b2b;
+}
+
+button {
+  height: 200px;
+  width: 200px;
+  background-color: var(--button-color);
+  border: 0 none;
+  margin: 1vh 2vw;
+  color: var(--text-color-100);
+  box-shadow: 0 4px 8px #111111;
+  transition: 0.1s;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--button-color-hover);
+  box-shadow: 0 8px 16px #131313;
+  transform: scale(1.12);
+}
+
+h2 {
+  color: var(--text-color-100);
+  font-size: var(--font-size-500);
+  font-weight: 500;
+  text-align: center;
+  padding: 1vh 2vw;
+}
+
+
+.game-result {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-score,
+.computer-score {
+  height: 80px;
+  width: 150px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-text {
+  text-align: center;
+}
+
+.winner-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.final-game-result {
+  text-align: center;
+  font-size: var(--font-size-900);
+  color: var(--text-color-100);
+}
+
+.final-score {
+  color: var(--text-color-100);
+  font-size: var(--font-size-300);
+  white-space: pre;
+  text-align: center;
+}
+
+.restart-button{
+  height: 35px;
+  margin: 2vh 2vw;
+  width: 175px;
+  border-radius: 10%;
+}

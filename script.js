@@ -1,9 +1,6 @@
 let computerScore = 0;
 let playerScore = 0;
-
-
-//console.log(playerChoice());
-
+var result = '';
 
 let getComputerChoice = () => {
     let arr = ["rock", "paper", "scissor"];
@@ -12,41 +9,73 @@ let getComputerChoice = () => {
 
 function playRound(playerChoice, computerChoice) {
     if (playerChoice == "rock" && computerChoice == "scissor") {
-        console.log("yeaaa you won!!!");
+        result = 'yeaaa you won!!!';
         playerScore++;
     } else if (playerChoice == "paper" && computerChoice == "rock") {
-        console.log("yeaaa you won!!!");
+        result = 'yeaaa you won!!!';
         playerScore++;
     } else if (playerChoice == "scissor" && computerChoice == "paper") {
-        console.log("yeaaa you won!!!");
+        result = 'yeaaa you won!!!';
         playerScore++;
     } else if (playerChoice == computerChoice) {
-        console.log("draw")
+        result = 'draw';
     } else {
-        console.log(`You lose ${computerChoice} beats ${playerChoice}`);
+        result = `You lose ${computerChoice} beats ${playerChoice}`;
         computerScore++;
     }
-}
+
+    updateScore(playerScore, computerScore);
+    document.getElementById("result-text").textContent = result;
 
 
-
-function game() {
-    while (computerScore < 5 && playerScore < 5) {
-        let gamerChoice = prompt("your choice: ");
-        let computerChoice = getComputerChoice();
-        playRound(gamerChoice.toLowerCase(), computerChoice);
-    }
-    console.log("computer score: " + computerScore);
-    console.log("player score: " + playerScore);
-
-    if (computerScore == 5) {
-        console.log("computer won");
-        return;
-
-    } else {
-        console.log("player won");
+    if (playerScore === 5 || computerScore === 5) {
+        winner = playerScore > computerScore ? "You" : "Computer";
+        console.log(winner);
+        gameOver(winner);
         return;
     }
 }
 
-game();
+function updateScore(playerScore, computerScore) {
+    const pScore = document.querySelector('.player-score-number');
+    const cScore = document.querySelector('.computer-score-number');
+
+    pScore.textContent = playerScore;
+    cScore.textContent = computerScore;
+}
+
+let playerChoice;
+const btn = document.querySelectorAll('button');
+btn.forEach((button) => {
+    button.addEventListener('click', function (e) {
+        playRound(button.id, getComputerChoice());
+    });
+})
+
+function gameOver(winner) {
+    const mainScreen = document.getElementById('main');
+    mainScreen.remove();
+
+    const finalMess = document.querySelector('.final-game-result');
+    finalMess.textContent = 'Game Over!!';
+    finalMess.textContent += ` ${winner} won`;
+
+    const finalScore = document.querySelector('.final-score');
+
+    finalScore.textContent += `Computer Score: ${computerScore}\r\n`;
+    finalScore.textContent += `Your Score: ${playerScore}`;
+
+    const finalHolder = document.querySelector('.winner-page');
+    const restartButton = document.createElement('button');
+    restartButton.textContent = `Restart`;
+    finalHolder.appendChild(restartButton);
+    restartButton.classList.add('restart-button');
+
+    restartButton.addEventListener('click', resetGame)
+}
+
+function resetGame() {
+    const winnerScreen = document.querySelector('.winner-page');
+    winnerScreen.remove();
+    location.reload();
+}

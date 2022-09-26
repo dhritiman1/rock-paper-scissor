@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissor</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Tillana:wght@400;500&display=swap"
@@ -13,6 +14,38 @@
 </head>
 
 <body>
+    <div class="content" id="main">
+        <div class="game-text">
+            <h1>Rock Paper Scissor</h1>
+            <p>Score 5 points to win</p>
+        </div>
+        <div class="game-holder">
+            <button type="button" id="rock">rock</button>
+            <button type="button" id="paper">paper</button>
+            <button type="button" id="scissor">scissor</button>
+        </div>
+        <div class="game-result">
+            <h2>Score</h2>
+            <div class="score-container">
+                <div class="player-score">
+                    <p>Player:</p>
+                    <p class="player-score-number">0</p>
+                </div>
+                <div class="computer-score">
+                    <p>Computer:</p>
+                    <p class="computer-score-number">0</p>
+                </div>
+            </div>
+            <div class="result-message">
+                <p id="result-text">Start Playing</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="winner-page">
+        <div class="final-game-result"></div>
+        <div class="final-score"></div>
+    </div>
     
     <script src="script.js"></script>
 </body>
